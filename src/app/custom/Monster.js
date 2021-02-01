@@ -2,22 +2,18 @@ import gsap from "gsap/gsap-core";
 
 export default class Monster {
   constructor(element) {
+    gsap.set(".monster", { width: "80%" });
     this.element = element;
-    this.element.addEventListener("mouseenter", e=>{
-        this.expand();
-    })
-    this.element.addEventListener("mouseleave", e=>{
-        this.reset();
-    })
   }
 
   expand() {
-    gsap.to(this.element, { width: "80%", duration: 0.5, id:"expand" });
-    gsap.to(".monster:not(:hover)", { width: "4%", duration: 0.5, id:"contract" });
+    gsap.to(".monster", { width: "4%", duration: 0.5, id: "expand" });
+    gsap.to(this.element, { width: "80%", duration: 0.5, id: "expand" });
+    console.log(this.element.style.width);
   }
 
   contract() {
-   // gsap.to(this.element, { width: "4%", duration: 0.5 , id:"contract"}); don`t rly need this ??
+    gsap.to(this.element, { width: "4%", duration: 0.5, id: "contract" });
   }
 
   reset() {

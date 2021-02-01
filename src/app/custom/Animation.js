@@ -6,6 +6,15 @@ export default class Animation {
       document.querySelector("#container").children,
       (element) => new Monster(element)
     );
-   
-    }
+
+    this.monsters.forEach((monster) => {
+      monster.element.addEventListener("mouseenter", (e) => {
+        monster.expand();
+      });
+
+      monster.element.addEventListener("mouseleave", (e) => {
+        monster.reset();
+      });
+    });
+  }
 }
