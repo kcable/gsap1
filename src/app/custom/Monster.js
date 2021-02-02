@@ -7,16 +7,15 @@ export default class Monster {
   }
 
   expand() {
-    gsap.to(".monster", { width: "4%", duration: 0.5, id: "expand" });
     gsap.to(this.element, { width: "80%", duration: 0.5, id: "expand" });
     console.log(this.element.style.width);
   }
 
   contract() {
-    gsap.to(this.element, { width: "4%", duration: 0.5, id: "contract" });
+    gsap.to(".monster:not(:hover)", { width: "4%", duration: 0.5, id: "contract" });
   }
 
   reset() {
-    gsap.to(".monster", { width: "16.6%", duration: 0.5, id: "reset" });
+    gsap.to(".monster", { width: "16.6%", id: "reset" });
   }
 }

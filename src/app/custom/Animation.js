@@ -10,6 +10,7 @@ export default class Animation {
     this.monsters.forEach((monster) => {
       monster.element.addEventListener("mouseenter", (e) => {
         monster.expand();
+        monster.contract();
       });
 
       monster.element.addEventListener("mouseleave", (e) => {
